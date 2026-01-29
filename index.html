@@ -18,21 +18,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-body{
-  font-family:'Inter',sans-serif;
-  background:#f4f6fb;
-}
-.section{ padding:90px 0; }
+body{font-family:'Inter',sans-serif;background:#f4f6fb;}
+.section{padding:90px 0;}
 
 /* HERO */
-.hero-bg{
-  background:linear-gradient(135deg,#3b82f6,#6366f1);
-  height:140px;
-}
-
-/* CARD HOVER */
-.card-hover{ transition:.35s ease; }
-.card-hover:hover{ transform:translateY(-6px); }
+.hero-bg{background:linear-gradient(135deg,#3b82f6,#6366f1);height:140px;}
+.card-hover{transition:.35s ease;}
+.card-hover:hover{transform:translateY(-6px);}
 
 /* ===== TECH STACK ===== */
 .stack-card{
@@ -41,60 +33,89 @@ body{
   overflow:hidden;
   transition:.35s ease;
 }
-.stack-card:hover{
-  transform:translateY(-6px);
-  box-shadow:0 18px 36px rgba(0,0,0,.12);
-}
+.stack-card:hover{transform:translateY(-6px);box-shadow:0 18px 36px rgba(0,0,0,.12);}
 .stack-card::before{
   content:'';
   position:absolute;
-  left:0; top:0;
-  width:6px; height:100%;
+  left:0;top:0;width:6px;height:100%;
   background:var(--accent-gradient);
 }
 .stack-icon{
-  width:44px;
-  height:44px;
-  border-radius:12px;
-  background:rgba(0,0,0,.05);
-  color:var(--accent);
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  width:44px;height:44px;border-radius:12px;
+  background:rgba(0,0,0,.05);color:var(--accent);
+  display:flex;align-items:center;justify-content:center;
   font-size:18px;
 }
-
-/* Knowledge line */
 .stack-line{
-  height:6px;
-  background:#e5e7eb;
-  border-radius:10px;
-  overflow:hidden;
+  height:6px;background:#e5e7eb;border-radius:10px;overflow:hidden;
 }
 .stack-line-fill{
-  height:100%;
-  width:0%;
+  height:100%;width:0%;
   background:var(--accent-gradient);
   transition:width 1.2s ease;
 }
 
+/* ===== TIMELINE ===== */
+.timeline{position:relative;padding-left:70px;}
+.timeline::before{
+  content:'';position:absolute;left:28px;top:0;bottom:0;
+  width:4px;background:#c7d2fe;border-radius:4px;
+}
+.timeline-item{position:relative;margin-bottom:60px;}
+.timeline-marker{
+  position:absolute;left:10px;top:32px;
+  width:36px;height:36px;border-radius:50%;
+  background:#fff;border:4px solid var(--accent);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--accent);z-index:2;
+}
+.timeline-connector{
+  position:absolute;left:46px;top:50px;
+  width:30px;height:2px;background:var(--accent);
+}
+@media(max-width:768px){
+  .timeline{padding-left:0;}
+  .timeline::before,.timeline-marker,.timeline-connector{display:none;}
+}
+
+/* ===== EXPERIENCE CARD ===== */
+.exp-card{
+  position:relative;
+  border-radius:18px;
+  overflow:hidden;
+  background:#fff;
+  transition:.35s ease;
+}
+.exp-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 20px 40px rgba(0,0,0,.12);
+}
+.exp-card::before{
+  content:'';
+  position:absolute;left:0;top:0;width:6px;height:100%;
+  background:var(--accent-gradient);
+}
+.exp-watermark{
+  position:absolute;right:16px;bottom:16px;
+  width:80px;opacity:.04;pointer-events:none;
+}
+.exp-role{
+  background:var(--accent-gradient);
+  color:#fff;padding:6px 14px;border-radius:50px;
+  font-size:.75rem;font-weight:600;
+}
+.exp-icon{
+  width:44px;height:44px;border-radius:12px;
+  background:rgba(0,0,0,.05);color:var(--accent);
+  display:flex;align-items:center;justify-content:center;
+}
+.exp-toggle{cursor:pointer;font-size:.8rem;color:var(--accent);}
+
 /* ACCENTS */
-.accent-blue{
-  --accent:#3b82f6;
-  --accent-gradient:linear-gradient(90deg,#3b82f6,#6366f1);
-}
-.accent-green{
-  --accent:#16a34a;
-  --accent-gradient:linear-gradient(90deg,#16a34a,#22c55e);
-}
-.accent-purple{
-  --accent:#7c3aed;
-  --accent-gradient:linear-gradient(90deg,#7c3aed,#a855f7);
-}
-.accent-orange{
-  --accent:#f97316;
-  --accent-gradient:linear-gradient(90deg,#f97316,#fb923c);
-}
+.accent-blue{--accent:#3b82f6;--accent-gradient:linear-gradient(90deg,#3b82f6,#6366f1);}
+.accent-green{--accent:#16a34a;--accent-gradient:linear-gradient(90deg,#16a34a,#22c55e);}
+.accent-purple{--accent:#7c3aed;--accent-gradient:linear-gradient(90deg,#7c3aed,#a855f7);}
+.accent-orange{--accent:#f97316;--accent-gradient:linear-gradient(90deg,#f97316,#fb923c);}
 </style>
 </head>
 
@@ -104,7 +125,7 @@ body{
 <section class="section">
 <div class="container">
 <div class="row justify-content-center">
-<div class="col-md-6 col-lg-5" data-aos="zoom-in">
+<div class="col-md-6 col-lg-5">
 <div class="card shadow-5-strong text-center card-hover">
 <div class="hero-bg rounded-top"></div>
 <div class="d-flex justify-content-center" style="margin-top:-70px">
@@ -115,9 +136,9 @@ body{
 <h4 class="fw-bold mb-1">Your Name</h4>
 <p class="text-muted">Software Developer</p>
 <div class="d-flex justify-content-center gap-2 flex-wrap">
-<a class="btn btn-primary btn-sm btn-rounded"><i class="fas fa-download me-1"></i>Resume</a>
-<a class="btn btn-outline-dark btn-sm btn-rounded"><i class="fab fa-github me-1"></i>GitHub</a>
-<a class="btn btn-outline-primary btn-sm btn-rounded"><i class="fab fa-linkedin me-1"></i>LinkedIn</a>
+<a class="btn btn-primary btn-sm btn-rounded">Resume</a>
+<a class="btn btn-outline-dark btn-sm btn-rounded">GitHub</a>
+<a class="btn btn-outline-primary btn-sm btn-rounded">LinkedIn</a>
 </div>
 </div>
 </div>
@@ -129,98 +150,109 @@ body{
 <!-- TECH STACK -->
 <section class="section bg-white">
 <div class="container">
-<h3 class="fw-bold text-center mb-5" data-aos="fade-up">Tech Stack</h3>
+<h3 class="fw-bold text-center mb-5">Tech Stack</h3>
 
 <div class="row g-4">
 
-<!-- FRONTEND -->
-<div class="col-md-6" data-aos="fade-right">
+<div class="col-md-6">
 <div class="card stack-card accent-blue">
 <div class="card-body">
 <div class="d-flex align-items-center gap-3 mb-3">
 <div class="stack-icon"><i class="fas fa-laptop-code"></i></div>
 <h6 class="fw-bold mb-0">Frontend</h6>
 </div>
-
-<p class="mb-1">HTML / CSS / MDB5</p>
-<div class="stack-line mb-3">
-<div class="stack-line-fill" data-width="95"></div>
-</div>
-
-<div class="d-flex flex-wrap gap-2">
+<p>HTML / CSS / MDB5</p>
+<div class="stack-line mb-3"><div class="stack-line-fill" data-width="95"></div></div>
 <span class="btn btn-outline-primary btn-sm btn-rounded">HTML</span>
 <span class="btn btn-outline-primary btn-sm btn-rounded">CSS</span>
-<span class="btn btn-outline-primary btn-sm btn-rounded">MDB5</span>
 <span class="btn btn-outline-primary btn-sm btn-rounded">JavaScript</span>
 </div>
 </div>
 </div>
-</div>
 
-<!-- BACKEND -->
-<div class="col-md-6" data-aos="fade-left">
+<div class="col-md-6">
 <div class="card stack-card accent-green">
 <div class="card-body">
 <div class="d-flex align-items-center gap-3 mb-3">
 <div class="stack-icon"><i class="fas fa-server"></i></div>
 <h6 class="fw-bold mb-0">Backend</h6>
 </div>
-
-<p class="mb-1">.NET / Node.js</p>
-<div class="stack-line mb-3">
-<div class="stack-line-fill" data-width="90"></div>
-</div>
-
-<div class="d-flex flex-wrap gap-2">
+<p>.NET / Node.js</p>
+<div class="stack-line mb-3"><div class="stack-line-fill" data-width="90"></div></div>
 <span class="btn btn-outline-success btn-sm btn-rounded">.NET</span>
-<span class="btn btn-outline-success btn-sm btn-rounded">ASP.NET Core</span>
 <span class="btn btn-outline-success btn-sm btn-rounded">Node.js</span>
 </div>
 </div>
 </div>
-</div>
 
-<!-- DATABASE -->
-<div class="col-md-6" data-aos="fade-right">
-<div class="card stack-card accent-purple">
+</div>
+</div>
+</section>
+
+<!-- WORK EXPERIENCE -->
+<section class="section">
+<div class="container">
+<h3 class="fw-bold text-center mb-5">Work Experience</h3>
+
+<div class="timeline">
+
+<div class="timeline-item accent-blue">
+<div class="timeline-marker"><i class="fas fa-briefcase"></i></div>
+<div class="timeline-connector"></div>
+<div class="card exp-card ms-md-5">
+<img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Logo_TV_2015.png" class="exp-watermark">
 <div class="card-body">
-<div class="d-flex align-items-center gap-3 mb-3">
-<div class="stack-icon"><i class="fas fa-database"></i></div>
-<h6 class="fw-bold mb-0">Databases</h6>
+<div class="d-flex gap-3 mb-2">
+<div class="exp-icon"><i class="fas fa-briefcase"></i></div>
+<div>
+<span class="exp-role">Senior Software Developer</span>
+<div class="text-muted small">2023 – Present</div>
+</div>
+</div>
+<h6 class="fw-bold mt-3">Company Name</h6>
+<div class="d-flex flex-wrap gap-2 mb-2">
+<span class="chip bg-primary text-white">+40% Performance</span>
+<span class="chip bg-success text-white">Scalable APIs</span>
+</div>
+<div class="collapse" id="exp1">
+<p class="text-muted mb-0">
+Led system refactoring, optimized SQL queries,
+and improved API performance by 40%.
+</p>
+</div>
+<div class="exp-toggle mt-2" data-mdb-toggle="collapse" data-mdb-target="#exp1">
+View details
+</div>
+</div>
+</div>
 </div>
 
-<p class="mb-1">PostgreSQL / SQL Server</p>
-<div class="stack-line mb-3">
-<div class="stack-line-fill" data-width="88"></div>
-</div>
-
-<div class="d-flex flex-wrap gap-2">
-<span class="btn btn-outline-secondary btn-sm btn-rounded">PostgreSQL</span>
-<span class="btn btn-outline-secondary btn-sm btn-rounded">SQL Server</span>
-<span class="btn btn-outline-secondary btn-sm btn-rounded">Redis</span>
-</div>
-</div>
-</div>
-</div>
-
-<!-- TOOLS -->
-<div class="col-md-6" data-aos="fade-left">
-<div class="card stack-card accent-orange">
+<div class="timeline-item accent-purple">
+<div class="timeline-marker"><i class="fas fa-code"></i></div>
+<div class="timeline-connector"></div>
+<div class="card exp-card ms-md-5">
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" class="exp-watermark">
 <div class="card-body">
-<div class="d-flex align-items-center gap-3 mb-3">
-<div class="stack-icon"><i class="fas fa-tools"></i></div>
-<h6 class="fw-bold mb-0">Tools & DevOps</h6>
+<div class="d-flex gap-3 mb-2">
+<div class="exp-icon"><i class="fas fa-code"></i></div>
+<div>
+<span class="exp-role">Software Developer</span>
+<div class="text-muted small">2020 – 2023</div>
 </div>
-
-<p class="mb-1">Git / Docker / CI-CD</p>
-<div class="stack-line mb-3">
-<div class="stack-line-fill" data-width="85"></div>
 </div>
-
-<div class="d-flex flex-wrap gap-2">
-<span class="btn btn-outline-warning btn-sm btn-rounded">Git</span>
-<span class="btn btn-outline-warning btn-sm btn-rounded">Docker</span>
-<span class="btn btn-outline-warning btn-sm btn-rounded">GitHub Actions</span>
+<h6 class="fw-bold mt-3">Company Name</h6>
+<div class="d-flex flex-wrap gap-2 mb-2">
+<span class="chip bg-warning text-dark">20+ Modules</span>
+<span class="chip bg-info text-white">Automation</span>
+</div>
+<div class="collapse" id="exp2">
+<p class="text-muted mb-0">
+Built full-stack modules, automated reports,
+and integrated enterprise systems.
+</p>
+</div>
+<div class="exp-toggle mt-2" data-mdb-toggle="collapse" data-mdb-target="#exp2">
+View details
 </div>
 </div>
 </div>
@@ -236,18 +268,11 @@ body{
 
 <script>
 AOS.init({once:true,duration:900});
-
-// Animate tech stack lines
-document.querySelectorAll('.stack-line-fill').forEach(line=>{
-  const width=line.dataset.width;
-  const obs=new IntersectionObserver(entries=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){
-        line.style.width=width+'%';
-      }
-    });
-  },{threshold:0.6});
-  obs.observe(line);
+document.querySelectorAll('.stack-line-fill').forEach(el=>{
+  const obs=new IntersectionObserver(e=>{
+    if(e[0].isIntersecting) el.style.width=el.dataset.width+'%';
+  },{threshold:.6});
+  obs.observe(el);
 });
 </script>
 
